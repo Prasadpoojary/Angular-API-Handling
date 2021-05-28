@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card" *ngIf="user; else loading">
+      <div class="profile">
+          <img src="{{user.picture?.large}}" alt="Profile Pic">
+      </div>
+      <div class="name">
+          <h1>{{user.name?.title}}.{{user.name?.first}} {{user.name?.last}}.</h1>
+      </div>
+      <div class="other">
+          <p class="email"><fa-icon [icon]="faEnvelope"></fa-icon> {{user.email}}</p>
+          <p class="address"><fa-icon [icon]="faMapMarkedAlt"></fa-icon> {{user.location?.city}} {{user.location?.state}}</p>
+          <p class="address">{{user.location?.country}} {{user.location?.postcode}}</p>
+      </div>
+      <div class="next">
+        <button (click)="ngOnInit();">Next</button>
+      </div>
+  </div>
+  <ng-template #loading>
+    <div class="loading">
+      <h3>Loading<span> .</span><span> .</span><span> .</span><span> .</span><span> .</span></h3>
+    </div>
+  </ng-template>
+</div>
